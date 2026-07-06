@@ -17,9 +17,9 @@ export default function PostColumn({
 }: PostColumnProps) {
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <div>
-          <h2 className="text-lg font-bold text-white">{title}</h2>
+      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+        <div className="min-w-0">
+          <h2 className="text-base font-bold text-white sm:text-lg">{title}</h2>
           <p className="mt-0.5 text-xs text-zinc-500">{description}</p>
         </div>
         <Link

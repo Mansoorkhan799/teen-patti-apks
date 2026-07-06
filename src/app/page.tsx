@@ -68,30 +68,30 @@ export default async function HomePage() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-zinc-800/80 py-14 sm:py-20">
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
-            <div>
-              <h1 className="max-w-xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-[3.25rem]">
+      <section className="relative overflow-hidden border-b border-zinc-800/80 py-10 sm:py-14 md:py-20">
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12">
+            <div className="min-w-0">
+              <h1 className="text-[1.625rem] font-bold leading-[1.25] tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-tight">
                 Download and Play New{" "}
                 <span className="text-emerald-400">Pakistani Earning Games 2026</span>
               </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-400">
+              <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:mt-5 sm:text-lg">
                 Trusted APK downloads, in-depth earning guides, and honest reviews
                 for Teen Patti apps — built for players in Pakistan.
               </p>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-500">
+              <p className="mt-4 text-sm leading-relaxed text-zinc-500 sm:mt-5 sm:text-base">
                 Teen Patti has become one of Pakistan&apos;s most popular mobile card games,
                 with millions of players downloading APKs to play and earn through JazzCash
                 and Easypaisa. As the market grows, players need trusted guides to find
                 safe apps, understand withdrawal rules, and unlock real earning potential
                 — without falling for scams or outdated downloads.
               </p>
-              <div className="mt-8 flex flex-wrap gap-8">
+              <div className="mt-6 grid grid-cols-3 gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-8">
                 {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="text-2xl font-bold text-white">{stat.value}</p>
-                    <p className="text-sm text-zinc-500">{stat.label}</p>
+                  <div key={stat.label} className="text-center sm:text-left">
+                    <p className="text-xl font-bold text-white sm:text-2xl">{stat.value}</p>
+                    <p className="mt-0.5 text-xs text-zinc-500 sm:text-sm">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -105,8 +105,8 @@ export default async function HomePage() {
       </section>
 
       {/* Posts — two columns */}
-      <section className="border-b border-zinc-800/80 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="border-b border-zinc-800/80 py-10 sm:py-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
           {!wpConnected ? (
             <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-6 text-amber-200">
               <p className="font-semibold">Guides loading soon</p>
@@ -115,7 +115,7 @@ export default async function HomePage() {
               </p>
             </div>
           ) : (
-            <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
+            <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-10">
               <PostColumn
                 title="Teen Patti APKs"
                 description="Fresh APK downloads, earning tips, and game reviews"
@@ -134,10 +134,10 @@ export default async function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="border-b border-zinc-800/80 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="border-b border-zinc-800/80 py-10 sm:py-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+            <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
               Why Players Trust Us
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-zinc-400">
@@ -145,11 +145,11 @@ export default async function HomePage() {
               structured for clarity from download to withdrawal.
             </p>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-6 transition hover:border-emerald-500/30 hover:bg-zinc-800/50"
+                className="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-5 sm:p-6 transition hover:border-emerald-500/30 hover:bg-zinc-800/50"
               >
                 <span className="text-2xl" role="img" aria-hidden="true">
                   {feature.icon}
@@ -165,9 +165,9 @@ export default async function HomePage() {
       </section>
 
       {/* Who We Are */}
-      <section className="border-b border-zinc-800/80 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+      <section className="border-b border-zinc-800/80 py-10 sm:py-14 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6">
+          <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10">
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider text-emerald-400">
                 Who We Are
@@ -193,7 +193,7 @@ export default async function HomePage() {
                 Learn more about us →
               </Link>
             </div>
-            <div className="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-8">
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-800/30 p-5 sm:p-8">
               <h3 className="font-semibold text-white">Our Commitment</h3>
               <ul className="mt-4 space-y-3 text-sm text-zinc-400">
                 <li className="flex gap-3">
@@ -225,9 +225,9 @@ export default async function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-zinc-800/80 py-16">
-        <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
+      <section className="border-t border-zinc-800/80 py-10 sm:py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-5 text-center sm:px-6">
+          <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">
             Have a Question or Suggestion?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-zinc-400">

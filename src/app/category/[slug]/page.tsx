@@ -80,7 +80,7 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <SiteLayout>
       <JsonLd data={schemaGraph} />
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12">
         <Breadcrumbs items={breadcrumbs} />
 
         <h1 className="text-3xl font-bold tracking-tight text-white">{category.name}</h1>

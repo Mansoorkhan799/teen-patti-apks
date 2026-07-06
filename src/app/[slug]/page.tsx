@@ -71,14 +71,14 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <SiteLayout>
       <JsonLd data={schemaGraph} />
-      <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+      <article className="mx-auto max-w-4xl px-5 py-8 sm:px-6 sm:py-10">
         <Breadcrumbs items={breadcrumbs} />
 
         {/* Card-style hero — title left, compact image right */}
-        <header className="mb-8 rounded-2xl border border-zinc-800 bg-zinc-800/20 p-5 sm:p-6">
-          <div className="flex flex-col-reverse gap-5 sm:flex-row sm:items-start sm:justify-between">
+        <header className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-800/20 p-4 sm:mb-8 sm:p-6">
+          <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
             <div className="min-w-0 flex-1">
-              <h1 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
+              <h1 className="text-xl font-bold leading-tight text-white sm:text-2xl md:text-3xl">
                 {postTitle}
               </h1>
               {excerpt && (
@@ -125,7 +125,7 @@ export default async function PostPage({ params }: PageProps) {
                   alt={featured.alt}
                   width={160}
                   height={160}
-                  className="h-32 w-32 rounded-2xl object-cover sm:h-36 sm:w-36"
+                  className="h-28 w-28 rounded-xl object-cover sm:h-36 sm:w-36 sm:rounded-2xl"
                   priority
                 />
               </figure>

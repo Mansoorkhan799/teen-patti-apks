@@ -13,17 +13,17 @@ const siteInfo = [
 export default function SiteInfoTable() {
   return (
     <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-800/30">
-      <table className="w-full text-sm">
+      <table className="w-full text-xs sm:text-sm">
         <tbody>
           {siteInfo.map((row, index) => (
             <tr
               key={row.label}
               className={index !== siteInfo.length - 1 ? "border-b border-zinc-800" : ""}
             >
-              <th className="w-[42%] px-4 py-3.5 text-left font-medium text-zinc-500">
+              <th className="w-[40%] px-3 py-2.5 text-left font-medium text-zinc-500 sm:w-[42%] sm:px-4 sm:py-3.5">
                 {row.label}
               </th>
-              <td className="px-4 py-3.5 text-left font-medium text-zinc-200">
+              <td className="px-3 py-2.5 text-left font-medium text-zinc-200 sm:px-4 sm:py-3.5">
                 {row.value}
               </td>
             </tr>

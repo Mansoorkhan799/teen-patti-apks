@@ -12,7 +12,7 @@ interface LegalPageProps {
 export default function LegalPage({ title, description, children }: LegalPageProps) {
   return (
     <SiteLayout>
-      <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <article className="mx-auto max-w-3xl px-5 py-10 sm:px-6 sm:py-12">
         <Breadcrumbs
           items={[
             { label: getSiteName(), href: "/" },
