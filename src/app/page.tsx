@@ -65,20 +65,13 @@ export default async function HomePage() {
             Trusted APK downloads, in-depth earning guides, and honest reviews
             for Teen Patti apps — built for players in Pakistan.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/blog"
-              className="inline-flex items-center rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
-            >
-              Browse All Guides
-            </Link>
-            <Link
-              href="/about-us"
-              className="inline-flex items-center rounded-xl border border-zinc-600 px-6 py-3 text-sm font-semibold text-zinc-300 transition hover:border-zinc-500 hover:text-white"
-            >
-              About Us
-            </Link>
-          </div>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-500">
+            Teen Patti has become one of Pakistan&apos;s most popular mobile card games,
+            with millions of players downloading APKs to play and earn through JazzCash
+            and Easypaisa. As the market grows, players need trusted guides to find
+            safe apps, understand withdrawal rules, and unlock real earning potential
+            — without falling for scams or outdated downloads.
+          </p>
           <div className="mt-10 flex flex-wrap gap-8">
             {stats.map((stat) => (
               <div key={stat.label}>
