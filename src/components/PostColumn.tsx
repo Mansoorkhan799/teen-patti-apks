@@ -17,27 +17,27 @@ export default function PostColumn({
 }: PostColumnProps) {
   return (
     <div>
-      <div className="mb-6 flex items-end justify-between gap-4">
+      <div className="mb-4 flex items-center justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-white sm:text-2xl">{title}</h2>
-          <p className="mt-1.5 text-sm text-zinc-400">{description}</p>
+          <h2 className="text-lg font-bold text-white">{title}</h2>
+          <p className="mt-0.5 text-xs text-zinc-500">{description}</p>
         </div>
         <Link
           href={`/category/${categorySlug}`}
-          className="shrink-0 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
+          className="shrink-0 text-xs font-medium text-emerald-400 hover:text-emerald-300"
         >
           View all →
         </Link>
       </div>
 
       {posts.length === 0 ? (
-        <p className="rounded-xl border border-zinc-800 bg-zinc-800/20 px-4 py-8 text-center text-sm text-zinc-500">
+        <p className="rounded-lg border border-zinc-800 bg-zinc-800/20 px-3 py-5 text-center text-xs text-zinc-500">
           New guides coming soon.
         </p>
       ) : (
-        <div className="grid gap-5">
+        <div className="flex flex-col gap-2">
           {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard key={post.id} post={post} compact />
           ))}
         </div>
       )}
