@@ -7,11 +7,12 @@ const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Teen Patti APKs";
 
 export const siteIcons: Metadata["icons"] = {
   icon: [
-    { url: "/favicon/favicon.ico", sizes: "any" },
+    { url: "/favicon.ico", sizes: "any" },
     { url: "/favicon/favicon.svg", type: "image/svg+xml" },
     { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
   ],
   apple: "/favicon/apple-touch-icon.png",
+  shortcut: "/favicon.ico",
 };
 
 export const siteManifest = "/favicon/site.webmanifest";
