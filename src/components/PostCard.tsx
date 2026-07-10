@@ -5,7 +5,7 @@ import {
   getFeaturedImage,
   getPostCategories,
   stripHtml,
-} from "@/lib/wordpress";
+} from "@/lib/wordpress-helpers";
 
 interface PostCardProps {
   post: WPPost;

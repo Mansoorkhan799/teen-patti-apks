@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { WPPost } from "@/types/wordpress";
-import { getFeaturedImage, getWordPressOrigin, stripHtml } from "@/lib/wordpress";
+import { getFeaturedImage, stripHtml } from "@/lib/wordpress-helpers";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Teen Patti APKs";
@@ -103,8 +103,4 @@ export function getSiteDescription(): string {
 
 export function getSiteUrl(): string {
   return SITE_URL;
-}
-
-export function getWordPressMediaOrigin(): string {
-  return getWordPressOrigin();
 }

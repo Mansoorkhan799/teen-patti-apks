@@ -84,18 +84,32 @@ add_action('deleted_post', function ($post_id) {
     );
 });
 
-// ─── 4. Redirect public WP to Next.js (ONLY after Next.js is live on main domain)
-// Enable this when WordPress moves to cms.teenpattiapks.com.pk:
-//
-// add_action('template_redirect', function () {
-//     if (is_admin() || wp_doing_ajax() || defined('REST_REQUEST')) return;
-//     $path = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
-//     wp_redirect('https://teenpattiapks.com.pk' . $path, 301);
-//     exit;
-// });
+// ─── 4. Redirect public CMS pages to the Next.js site ───────────────────────
+// Keeps /wp-admin, AJAX, REST API, and cron available for publishing.
 
-// ─── 5. Block CMS from Google indexing (enable when on cms subdomain) ───────
-//
-// add_action('wp_head', function () {
-//     echo '<meta name="robots" content="noindex, nofollow">' . "\n";
-// }, 1);
+add_action('template_redirect', function () {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    if (defined('REST_REQUEST') && REST_REQUEST) {
+        return;
+    }
+
+    $path = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
+    wp_redirect('https://teenpattiapks.com.pk' . $path, 301);
+    exit;
+});
+
+// ─── 5. Block CMS from Google indexing ──────────────────────────────────────
+// Safety net if a page is still crawled before/without the redirect.
+
+add_action('wp_head', function () {
+    echo '<meta name="robots" content="noindex, nofollow">' . "\n";
+}, 1);
+
+add_filter('wp_robots', function ($robots) {
+    $robots['noindex'] = true;
+    $robots['nofollow'] = true;
+    return $robots;
+});

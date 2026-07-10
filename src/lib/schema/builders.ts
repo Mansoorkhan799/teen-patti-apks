@@ -12,7 +12,7 @@ import {
   HOWTO_TITLE_PATTERN,
   SCHEMA_CONTEXT,
 } from "./constants";
-import { getFeaturedImage, stripHtml } from "@/lib/wordpress";
+import { getFeaturedImage, stripHtml } from "@/lib/wordpress-helpers";
 import { getSiteDescription, getSiteName, getSiteUrl } from "@/lib/seo";
 
 type JsonLdObject = Record<string, unknown>;
