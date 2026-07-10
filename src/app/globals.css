@@ -112,13 +112,13 @@ body {
   margin-bottom: 1.1em;
 }
 
-.wp-content.entry-content a {
+.wp-content.entry-content a:not(.kb-button):not(.kt-button):not(.wp-block-button__link) {
   color: #34d399;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.wp-content.entry-content a:hover {
+.wp-content.entry-content a:not(.kb-button):not(.kt-button):not(.wp-block-button__link):hover {
   color: #6ee7b7;
 }
 
@@ -260,6 +260,120 @@ body {
 .wp-content.entry-content .wp-block-kadence-advancedbtn {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+}
+
+/*
+ * Kadence Advanced Button base styles
+ * Inline block styles from WP set colors/radius; these provide layout,
+ * padding, and icon sizing that Kadence plugin CSS normally supplies.
+ */
+.wp-content.entry-content .kb-buttons-wrap,
+.wp-content.entry-content .wp-block-kadence-advancedbtn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wp-content.entry-content .kt-btn-wrap {
+  display: inline-flex;
+}
+
+.wp-content.entry-content .kb-button,
+.wp-content.entry-content .kt-button,
+.wp-content.entry-content .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.75em 1.5em;
+  border-style: solid;
+  border-width: 0;
+  border-radius: 0.25rem;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.wp-content.entry-content .kb-button:hover,
+.wp-content.entry-content .kt-button:hover,
+.wp-content.entry-content .wp-block-button__link:hover,
+.wp-content.entry-content .kb-button:focus,
+.wp-content.entry-content .kt-button:focus,
+.wp-content.entry-content .wp-block-button__link:focus {
+  text-decoration: none !important;
+}
+
+.wp-content.entry-content .kt-btn-size-small {
+  font-size: 0.875rem;
+  padding: 0.45em 1em;
+}
+
+.wp-content.entry-content .kt-btn-size-standard {
+  font-size: 1.0625rem;
+  padding: 0.75em 1.5em;
+}
+
+.wp-content.entry-content .kt-btn-size-large {
+  font-size: 1.25rem;
+  padding: 1em 2em;
+}
+
+.wp-content.entry-content .kt-btn-width-type-fixed {
+  min-width: 12rem;
+}
+
+.wp-content.entry-content .kt-btn-width-type-full,
+.wp-content.entry-content .kb-btn-global-width-full {
+  width: 100%;
+}
+
+.wp-content.entry-content .kt-btn-inner-text {
+  display: inline-block;
+}
+
+.wp-content.entry-content .kb-svg-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.wp-content.entry-content .kb-svg-icon-wrap svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: currentColor;
+}
+
+.wp-content.entry-content .kt-btn-icon-side-left {
+  order: -1;
+}
+
+.wp-content.entry-content .kt-btn-icon-side-right {
+  order: 1;
+}
+
+/* Gutenberg Button block */
+.wp-content.entry-content .wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.wp-content.entry-content .wp-block-button {
+  display: inline-flex;
 }
 
 /* Gutenberg wide/full alignment */
