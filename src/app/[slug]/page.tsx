@@ -137,7 +137,11 @@ export default async function PostPage({ params }: PageProps) {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-        <WordPressContent html={post.content.rendered} skipLeadingH1 />
+        <WordPressContent
+          html={post.content.rendered}
+          skipLeadingH1
+          excerpt={excerpt}
+        />
         </FadeIn>
       </article>
     </SiteLayout>

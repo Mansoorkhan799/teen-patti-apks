@@ -25,6 +25,46 @@ export function stripLeadingH1(html: string): string {
   return $.html();
 }
 
+function normalizeIntroText(text: string): string {
+  return cleanText(
+    text
+      .replace(/&#8230;|&hellip;|…|\.{2,}$/g, "")
+      .replace(/&nbsp;/g, " ")
+      .toLowerCase()
+  );
+}
+
+/**
+ * Remove the first paragraph when it duplicates the hero excerpt
+ * (WordPress auto-excerpts are usually the truncated first paragraph).
+ */
+export function stripLeadingExcerptDuplicate(
+  html: string,
+  excerpt: string
+): string {
+  const normalizedExcerpt = normalizeIntroText(excerpt);
+  if (normalizedExcerpt.length < 40) return html;
+
+  const $ = cheerio.load(html, null, false);
+  const firstP = $("p").first();
+  if (!firstP.length) return html;
+
+  const paraText = normalizeIntroText(firstP.text());
+  if (!paraText) return html;
+
+  const excerptPrefix = normalizedExcerpt.slice(0, 80);
+  const paraPrefix = paraText.slice(0, 80);
+
+  if (
+    paraText.startsWith(excerptPrefix) ||
+    normalizedExcerpt.startsWith(paraPrefix)
+  ) {
+    firstP.remove();
+  }
+
+  return $.html();
+}
+
 function extractImageFromNodes(
   $: cheerio.CheerioAPI,
   nodes: Element[]

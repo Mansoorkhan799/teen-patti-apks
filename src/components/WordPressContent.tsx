@@ -1,11 +1,16 @@
 import { fixContentUrls } from "@/lib/wordpress";
-import { stripLeadingH1 } from "@/lib/schema/parse-content";
+import {
+  stripLeadingExcerptDuplicate,
+  stripLeadingH1,
+} from "@/lib/schema/parse-content";
 
 interface WordPressContentProps {
   html: string;
   className?: string;
   /** Skip first H1 when title is rendered in the post hero banner */
   skipLeadingH1?: boolean;
+  /** Hero excerpt — strips the matching first body paragraph to avoid duplicates */
+  excerpt?: string;
 }
 
 /**
@@ -16,9 +21,11 @@ export default function WordPressContent({
   html,
   className = "",
   skipLeadingH1: shouldSkipH1 = false,
+  excerpt,
 }: WordPressContentProps) {
   let content = fixContentUrls(html);
   if (shouldSkipH1) content = stripLeadingH1(content);
+  if (excerpt) content = stripLeadingExcerptDuplicate(content, excerpt);
 
   return (
     <div

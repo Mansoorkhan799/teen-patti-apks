@@ -22,5 +22,17 @@ export function getPostCategories(post: WPPost): WPCategory[] {
 }
 
 export function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, "").trim();
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&#8230;|&hellip;/g, "…")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) =>
+      String.fromCharCode(parseInt(hex, 16))
+    )
+    .replace(/\s+/g, " ")
+    .trim();
 }
